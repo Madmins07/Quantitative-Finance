@@ -4,34 +4,35 @@
   .mono{font-family:ui-monospace,'SF Mono','JetBrains Mono','Cascadia Code',Menlo,Consolas,monospace}
   .blink{animation:blink 1.2s step-end infinite}
   @keyframes blink{0%,55%{opacity:1}56%,100%{opacity:0}}
+  @media (prefers-reduced-motion: reduce){ .blink{animation:none} }
 </style>
 <defs>
   <clipPath id="bf"><rect width="1000" height="220" rx="14"/></clipPath>
-  <pattern id="bdots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#1F232B"/></pattern>
+  <pattern id="bdots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#1F2533"/></pattern>
 </defs>
 <g clip-path="url(#bf)">
-<rect width="1000" height="220" fill="#0A0B0E"/>
+<rect width="1000" height="220" fill="#0D1117"/>
 <rect width="1000" height="220" fill="url(#bdots)" opacity=".45"/>
-<rect x="39.5" y="0" width="1" height="220" fill="#2A2F39"/><rect x="36" y="52" width="8" height="8" fill="#FF7A1A"/>
+<rect x="39.5" y="0" width="1" height="220" fill="#2B3242"/><rect x="36" y="52" width="8" height="8" fill="#A8D4FF"/>
 <g opacity="0"><animate attributeName="opacity" values="0;1" begin="0.1s" dur="0.55s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" begin="0.1s" dur="0.55s" fill="freeze"/>
-<text x="66" y="60" class="mono" font-size="10.5" fill="#FF7A1A" font-weight="700" letter-spacing="2.4">MADMINS07  /  QUANTITATIVE-FINANCE</text>
+<text x="66" y="60" class="mono" font-size="10.5" fill="#A8D4FF" font-weight="700" letter-spacing="2.4">MADMINS07  /  QUANTITATIVE-FINANCE</text>
 </g>
 <g opacity="0"><animate attributeName="opacity" values="0;1" begin="0.2s" dur="0.55s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" begin="0.2s" dur="0.55s" fill="freeze"/>
-<text x="944" y="60" class="mono" font-size="10" fill="#6A7280" text-anchor="end" letter-spacing="2.4">APP  ·  2024  ·  PYTHON</text>
+<text x="944" y="60" class="mono" font-size="10" fill="#79819A" text-anchor="end" letter-spacing="2.4">APP  ·  2024  ·  PYTHON</text>
 </g>
-<line x1="66" y1="74" x2="944" y2="74" stroke="#1F232B" opacity="1"/>
+<line x1="66" y1="74" x2="944" y2="74" stroke="#1F2533" opacity="1"/>
 <g opacity="0"><animate attributeName="opacity" values="0;1" begin="0.25s" dur="0.7s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="0 12" to="0 0" begin="0.25s" dur="0.7s" fill="freeze"/>
-<text x="88" y="126" class="sans" font-size="42" fill="#F4F5F7" font-weight="800" letter-spacing="-1.6">Stock Forecast App</text>
+<text x="88" y="126" class="sans" font-size="42" fill="#E4EBF5" font-weight="800" letter-spacing="-1.6">Stock Forecast App</text>
 </g>
-<rect x="88.0" y="140.0" width="0" height="3.0" rx="0" fill="#FF7A1A"><animate attributeName="width" values="0;44.0" begin="0.70s" dur="0.5s" fill="freeze"/></rect>
+<rect x="88.0" y="140.0" width="0" height="3.0" rx="0" fill="#A8D4FF"><animate attributeName="width" values="0;44.0" begin="0.70s" dur="0.5s" fill="freeze"/></rect>
 <g opacity="0"><animate attributeName="opacity" values="0;1" begin="0.5s" dur="0.6s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" begin="0.5s" dur="0.6s" fill="freeze"/>
-<text x="88" y="168" class="sans" font-size="14.5" fill="#AEB4BF">Prophet forecasts over yfinance prices, in a Streamlit dashboard.</text>
+<text x="88" y="168" class="sans" font-size="14.5" fill="#ADB5C7">Prophet forecasts over yfinance prices, in a Streamlit dashboard.</text>
 </g>
 <g opacity="0"><animate attributeName="opacity" values="0;1" begin="0.75s" dur="0.5s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="0 6" to="0 0" begin="0.75s" dur="0.5s" fill="freeze"/>
-<rect x="88" y="184" width="68" height="22" fill="#111318" stroke="#1F232B"/><text x="122.0" y="198.4" class="mono" font-size="10" fill="#AEB4BF" font-weight="600" text-anchor="middle" letter-spacing="1.6">PROPHET</text>
-<rect x="162" y="184" width="74" height="22" fill="#111318" stroke="#1F232B"/><text x="199.0" y="198.4" class="mono" font-size="10" fill="#AEB4BF" font-weight="600" text-anchor="middle" letter-spacing="1.6">YFINANCE</text>
-<rect x="242" y="184" width="81" height="22" fill="#111318" stroke="#1F232B"/><text x="282.5" y="198.4" class="mono" font-size="10" fill="#AEB4BF" font-weight="600" text-anchor="middle" letter-spacing="1.6">STREAMLIT</text>
+<rect x="88" y="184" width="68" height="22" fill="#12161F" stroke="#1F2533"/><text x="122.0" y="198.4" class="mono" font-size="10" fill="#ADB5C7" font-weight="600" text-anchor="middle" letter-spacing="1.6">PROPHET</text>
+<rect x="162" y="184" width="74" height="22" fill="#12161F" stroke="#1F2533"/><text x="199.0" y="198.4" class="mono" font-size="10" fill="#ADB5C7" font-weight="600" text-anchor="middle" letter-spacing="1.6">YFINANCE</text>
+<rect x="242" y="184" width="81" height="22" fill="#12161F" stroke="#1F2533"/><text x="282.5" y="198.4" class="mono" font-size="10" fill="#ADB5C7" font-weight="600" text-anchor="middle" letter-spacing="1.6">STREAMLIT</text>
 </g>
 </g>
-<rect x=".5" y=".5" width="999" height="219" rx="14" fill="none" stroke="#1F232B"/>
+<rect x=".5" y=".5" width="999" height="219" rx="14" fill="none" stroke="#1F2533"/>
 </svg>

@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/python-3.10+-FF7A1A?style=flat-square&labelColor=0A0B0E&logo=python&logoColor=EEF1ED" alt="python 3.10+"/>
+  <img src="https://img.shields.io/badge/python-3.10+-A8D4FF?style=flat-square&labelColor=0A0B0E&logo=python&logoColor=EEF1ED" alt="python 3.10+"/>
   <img src="https://img.shields.io/github/last-commit/Madmins07/Quantitative-Finance?style=flat-square&labelColor=0A0B0E&color=6A7280&label=updated" alt="last-commit"/>
   <img src="https://img.shields.io/github/license/Madmins07/Quantitative-Finance?style=flat-square&labelColor=0A0B0E&color=2A2F39" alt="license"/>
 </div>
