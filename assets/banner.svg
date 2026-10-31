@@ -1,81 +1,75 @@
 <svg width="1000" height="240" viewBox="0 0 1000 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stock Forecast App: Prophet forecasts over yfinance prices, in a Streamlit dashboard.">
 <style>
-  .sans{font-family:-apple-system,'Instrument Sans','Inter','Segoe UI','Helvetica Neue',Arial,sans-serif}
-  .mono{font-family:ui-monospace,'SF Mono','Geist Mono','JetBrains Mono',Menlo,Consolas,monospace}
+  .sans{font-family:-apple-system,'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif}
+  .mono{font-family:ui-monospace,'SF Mono','JetBrains Mono','Cascadia Code',Menlo,Consolas,monospace}
   .pulse{animation:pulse 2.6s ease-in-out infinite}
   .blink{animation:blink 1.4s step-end infinite}
   .drift{animation:drift 14s ease-in-out infinite alternate}
   .drift2{animation:drift2 18s ease-in-out infinite alternate}
-  .spin{transform-origin:center;animation:spin 40s linear infinite}
-  .spinr{transform-origin:center;animation:spinr 60s linear infinite}
-  .scan{animation:scan 9s linear infinite}
+  .spin{animation:spin 40s linear infinite}
+  .spinr{animation:spinr 60s linear infinite}
+  .scan{animation:scan 7s linear infinite}
+  .float{animation:float 6s ease-in-out infinite alternate}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
   @keyframes blink{0%,55%{opacity:1}56%,100%{opacity:0}}
-  @keyframes drift{from{transform:translate(0,0)}to{transform:translate(-60px,24px)}}
-  @keyframes drift2{from{transform:translate(0,0)}to{transform:translate(50px,-30px)}}
+  @keyframes drift{from{transform:translate(0,0)}to{transform:translate(-70px,26px)}}
+  @keyframes drift2{from{transform:translate(0,0)}to{transform:translate(60px,-34px)}}
   @keyframes spin{to{transform:rotate(360deg)}}
   @keyframes spinr{to{transform:rotate(-360deg)}}
-  @keyframes scan{from{transform:translateY(-120%)}to{transform:translateY(120%)}}
+  @keyframes scan{from{transform:translateY(-140%)}to{transform:translateY(140%)}}
+  @keyframes float{from{transform:translateY(0)}to{transform:translateY(-8px)}}
 </style>
 <defs>
   <clipPath id="bf"><rect width="1000" height="240" rx="18"/></clipPath>
   <filter id="bglow" x="-50%" y="-50%" width="200%" height="200%">
-    <feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
-  <filter id="bsoft" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="55"/></filter>
-  <filter id="bsoft2" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="28"/></filter>
-  <pattern id="bdots" width="22" height="22" patternUnits="userSpaceOnUse">
-    <circle cx="1" cy="1" r="1" fill="#202723"/>
-  </pattern>
-  <linearGradient id="bsage" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0" stop-color="#5A6A60"/><stop offset="1" stop-color="#A6BDAD"/>
-  </linearGradient>
-  <linearGradient id="bsagev" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#A6BDAD"/><stop offset="1" stop-color="#5A6A60"/>
-  </linearGradient>
-  <linearGradient id="binkfade" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0" stop-color="#EEF1ED"/><stop offset="1" stop-color="#A6BDAD"/>
-  </linearGradient>
-  <linearGradient id="bhair" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0" stop-color="#788A7F" stop-opacity="0"/><stop offset=".5" stop-color="#A6BDAD"/><stop offset="1" stop-color="#788A7F" stop-opacity="0"/>
-  </linearGradient>
-  <linearGradient id="bfadeL" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0" stop-color="#0B0E0D"/><stop offset="1" stop-color="#0B0E0D" stop-opacity="0"/>
-  </linearGradient>
-  <linearGradient id="bfadeR" x1="1" y1="0" x2="0" y2="0">
-    <stop offset="0" stop-color="#0B0E0D"/><stop offset="1" stop-color="#0B0E0D" stop-opacity="0"/>
-  </linearGradient>
+  <filter id="bglow2" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="bsoft" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="60"/></filter>
+  <pattern id="bdots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#1C2032"/></pattern>
+  <linearGradient id="bground" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#07080D"/><stop offset="1" stop-color="#0A0A16"/></linearGradient>
+  <linearGradient id="bspine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFC14D"/><stop offset="1" stop-color="#FFC14D"/></linearGradient>
+  <linearGradient id="bspec" x1="0" y1="0" x2="1" y2="0"><stop offset="0.00" stop-color="#38E0FF"/><stop offset="0.33" stop-color="#8F5CFF"/><stop offset="0.67" stop-color="#FF4FD8"/><stop offset="1.00" stop-color="#FFC14D"/></linearGradient>
+  <linearGradient id="bacc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFC14D"/><stop offset="1" stop-color="#FFC14D"/></linearGradient>
+  <linearGradient id="baccv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFC14D"/><stop offset="1" stop-color="#FFC14D" stop-opacity="0"/></linearGradient>
+  <linearGradient id="brule" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFC14D"/><stop offset="1" stop-color="#FFC14D" stop-opacity="0"/></linearGradient>
+  <linearGradient id="bhair" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFC14D" stop-opacity="0"/><stop offset=".5" stop-color="#FFC14D"/><stop offset="1" stop-color="#FFC14D" stop-opacity="0"/></linearGradient>
+  <linearGradient id="bfadeL" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#07080D"/><stop offset="1" stop-color="#07080D" stop-opacity="0"/></linearGradient>
+  <linearGradient id="bfadeR" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#07080D"/><stop offset="1" stop-color="#07080D" stop-opacity="0"/></linearGradient>
 </defs>
 <g clip-path="url(#bf)">
-<rect width="1000" height="240" fill="#0B0E0D"/>
-<rect width="1000" height="240" fill="url(#bdots)" opacity=".55"/>
-<ellipse cx="860" cy="110" rx="220" ry="130" fill="#788A7F" opacity="0.22" filter="url(#bsoft)" class="drift"/>
-<ellipse cx="120" cy="230" rx="260" ry="90" fill="#5A6A60" opacity="0.18" filter="url(#bsoft)" class="drift2"/>
-<g class="spin" style="transform-origin:866px 120px"><circle cx="866" cy="120" r="74" fill="none" stroke="#5A6A60" stroke-width="1" stroke-dasharray="3 7"/><circle cx="940" cy="120" r="3" fill="#A6BDAD" filter="url(#bglow)"/></g>
-<g class="spinr" style="transform-origin:866px 120px"><circle cx="866" cy="120" r="48" fill="none" stroke="#788A7F" stroke-width="1" stroke-dasharray="40 24" opacity=".8"/><circle cx="866" cy="72" r="2.4" fill="#EEF1ED"/></g>
-<circle cx="866" cy="120" r="22" fill="none" stroke="#A6BDAD" stroke-width="1.2" stroke-dasharray="138" stroke-dashoffset="138"><animate attributeName="stroke-dashoffset" values="138;0" begin=".4s" dur="1.6s" fill="freeze"/></circle>
-<circle cx="866" cy="120" r="4.5" fill="#A6BDAD" class="pulse" filter="url(#bglow)"/>
+<rect width="1000" height="240" fill="url(#bground)"/>
+<rect width="1000" height="240" fill="url(#bdots)" opacity=".5"/>
+<ellipse cx="860" cy="110" rx="240" ry="130" fill="#FFC14D" opacity="0.18" filter="url(#bsoft)" class="drift"/>
+<ellipse cx="120" cy="240" rx="280" ry="90" fill="#8F5CFF" opacity="0.14" filter="url(#bsoft)" class="drift2"/>
+<g class="spin" style="transform-origin:866px 120px"><circle cx="866" cy="120" r="74" fill="none" stroke="#1C2032" stroke-width="1" stroke-dasharray="3 7"/><circle cx="940" cy="120" r="3" fill="#FFC14D" filter="url(#bglow)"/></g>
+<g class="spinr" style="transform-origin:866px 120px"><circle cx="866" cy="120" r="48" fill="none" stroke="#FFC14D" stroke-width="1" stroke-dasharray="40 24" opacity=".5"/><circle cx="866" cy="72" r="2.4" fill="#F3F5FF"/></g>
+<circle cx="866" cy="120" r="22" fill="none" stroke="url(#bspec)" stroke-width="1.4" stroke-dasharray="138" stroke-dashoffset="138"><animate attributeName="stroke-dashoffset" values="138;0" begin=".4s" dur="1.6s" fill="freeze"/></circle>
+<circle cx="866" cy="120" r="4.5" fill="#FFC14D" class="pulse" filter="url(#bglow)"/>
+<rect x="39" y="0" width="2" height="240" fill="url(#bspine)" opacity=".5"/><circle cx="40" cy="60" r="3.5" fill="#FFC14D" filter="url(#bglow)"/>
 <g opacity="0"><animate attributeName="opacity" values="0;1" begin="0.1s" dur="0.6s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="0 10" to="0 0" begin="0.1s" dur="0.6s" fill="freeze"/>
-<text x="48" y="60" class="mono" font-size="10.5" fill="#788A7F" letter-spacing="2.2">MADMINS07  /  QUANTITATIVE-FINANCE</text>
+<text x="66" y="64" class="mono" font-size="10.5" fill="#FFC14D" letter-spacing="2.2">MADMINS07  /  QUANTITATIVE-FINANCE</text>
 </g>
 <g opacity="0"><animate attributeName="opacity" values="0;1" begin="0.25s" dur="0.7s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="0 14" to="0 0" begin="0.25s" dur="0.7s" fill="freeze"/>
-<text x="48" y="118" class="sans" font-size="44" fill="#EEF1ED" font-weight="700" letter-spacing="-1.4">Stock Forecast App</text>
+<text x="66" y="122" class="sans" font-size="44" fill="#F3F5FF" font-weight="800" letter-spacing="-1.6">Stock Forecast App</text>
 </g>
-<rect x="48" y="134" width="0" height="1.5" fill="url(#bsage)"><animate attributeName="width" values="0;220" begin=".7s" dur=".9s" fill="freeze"/></rect>
+<rect x="66" y="138" width="0" height="2" fill="url(#bspec)"><animate attributeName="width" values="0;240" begin=".7s" dur=".9s" fill="freeze"/></rect>
 <g opacity="0"><animate attributeName="opacity" values="0;1" begin="0.55s" dur="0.7s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="0 10" to="0 0" begin="0.55s" dur="0.7s" fill="freeze"/>
-<text x="48" y="162" class="sans" font-size="15.5" fill="#C2C9C3">Prophet forecasts over yfinance prices, in a Streamlit dashboard.</text>
+<text x="66" y="166" class="sans" font-size="15.5" fill="#B9BFD6">Prophet forecasts over yfinance prices, in a Streamlit dashboard.</text>
 </g>
 <g opacity="0"><animate attributeName="opacity" values="0;1" begin="0.85s" dur="0.6s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="0 8" to="0 0" begin="0.85s" dur="0.6s" fill="freeze"/>
-<rect x="48" y="184" width="72" height="24" rx="12.0" fill="#111614" stroke="#202723"/><text x="84.0" y="199.6" class="mono" font-size="10.5" fill="#A6BDAD" font-weight="600" text-anchor="middle" letter-spacing="1.4">PROPHET</text>
-<rect x="128" y="184" width="79" height="24" rx="12.0" fill="#111614" stroke="#202723"/><text x="167.5" y="199.6" class="mono" font-size="10.5" fill="#A6BDAD" font-weight="600" text-anchor="middle" letter-spacing="1.4">YFINANCE</text>
-<rect x="215" y="184" width="86" height="24" rx="12.0" fill="#111614" stroke="#202723"/><text x="258.0" y="199.6" class="mono" font-size="10.5" fill="#A6BDAD" font-weight="600" text-anchor="middle" letter-spacing="1.4">STREAMLIT</text>
+<rect x="66" y="188" width="72" height="24" rx="12.0" fill="#0E1019" stroke="#1C2032"/><text x="102.0" y="203.6" class="mono" font-size="10.5" fill="#FFC14D" font-weight="600" text-anchor="middle" letter-spacing="1.4">PROPHET</text>
+<rect x="146" y="188" width="79" height="24" rx="12.0" fill="#0E1019" stroke="#1C2032"/><text x="185.5" y="203.6" class="mono" font-size="10.5" fill="#FFC14D" font-weight="600" text-anchor="middle" letter-spacing="1.4">YFINANCE</text>
+<rect x="233" y="188" width="86" height="24" rx="12.0" fill="#0E1019" stroke="#1C2032"/><text x="276.0" y="203.6" class="mono" font-size="10.5" fill="#FFC14D" font-weight="600" text-anchor="middle" letter-spacing="1.4">STREAMLIT</text>
 </g>
 <g opacity="0"><animate attributeName="opacity" values="0;1" begin="0.4s" dur="0.6s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="0 10" to="0 0" begin="0.4s" dur="0.6s" fill="freeze"/>
-<text x="952" y="60" class="mono" font-size="10.5" fill="#7E8781" text-anchor="end" letter-spacing="2.2">APP  ·  2024</text>
+<text x="952" y="64" class="mono" font-size="10.5" fill="#6F7693" text-anchor="end" letter-spacing="2.2">APP  ·  2024</text>
 </g>
 <g opacity="0"><animate attributeName="opacity" values="0;1" begin="0.5s" dur="0.6s" fill="freeze"/><animateTransform attributeName="transform" type="translate" from="0 10" to="0 0" begin="0.5s" dur="0.6s" fill="freeze"/>
-<text x="952" y="205" class="mono" font-size="10.5" fill="#7E8781" text-anchor="end" letter-spacing="2.2">PYTHON</text>
+<text x="952" y="209" class="mono" font-size="10.5" fill="#6F7693" text-anchor="end" letter-spacing="2.2">PYTHON</text>
 </g>
 </g>
-<rect x=".5" y=".5" width="999" height="239" rx="18" fill="none" stroke="#202723"/>
+<rect x=".5" y=".5" width="999" height="239" rx="18" fill="none" stroke="#1C2032"/>
 </svg>
